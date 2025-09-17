@@ -1,0 +1,5 @@
+fix the navbar links
+make the portfolio section modal
+
+make the smallmenu
+make the menus different

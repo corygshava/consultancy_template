@@ -1,0 +1,9 @@
+considering im storing data in the form 
+
+let wall_of_fame = [
+    [
+        {img: "images/game_battlefield.jpg"},
+        {gname:"Battlefield 2042"},
+        {service: "Player engagement"}
+    ], ...
+];

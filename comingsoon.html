@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming soon</title>
+
+    <style>
+        :root{
+            --roundness: 20px;
+            --shadow: #f1eac4;
+            --themecolor: #f6e792;
+            --modecolor:#333;
+            --textcolor: #fff;
+        }
+        *{
+            box-sizing: border-box;
+            transition: 0.3s ease-out;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        }
+        body{
+            margin: 0;
+            background-image: linear-gradient(80deg,cyan,dodgerblue);
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        .content{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            min-height: 100vh;
+        }
+        .container{
+            padding: 25px;
+            text-align: center;
+        }
+        .container h1{
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+        .container hr{
+            border: 2px solid #fff;
+            width: 200px;
+        }
+        .container p{
+            /* text-align: justify;
+            text-justify: distribute; */
+            margin: 12px 0;
+        }
+
+        .container .newsletter {
+            --paddItems: 12px 20px;
+            --inputwidth: 70%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px auto;
+            width: 96%;
+            max-width: 400px;
+        }
+        .container .newsletter input{
+            border-radius: var(--roundness);
+            box-shadow: 0 0 12px var(--shadow);
+            background-color: var(--modecolor);
+            display: inline-block;
+            width: var(--inputwidth);
+            border: none;
+            padding: var(--paddItems);
+            color: var(--textcolor);
+        }
+        .container .newsletter input:focus{
+            filter: brightness(200%);
+            color: #888;
+            outline: none;
+            scale: 1.1;
+        }
+        .container .newsletter button{
+            border-radius: var(--roundness);
+            display: inline-block;
+            width: calc(100% - var(--inputwidth));
+            background-color: var(--themecolor);
+            border: none;
+            padding: var(--paddItems);
+            cursor: pointer;
+        }
+        .container .newsletter button:hover{
+            scale: 1.1;
+        }
+
+        .standin{
+            padding: 20px;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            clip-path: polygon(100% 0,0 70%, 0% 100%,100% 100%);
+            text-align: right;
+            position: fixed;
+            background-color: var(--modecolor);
+            color:var(--textcolor);
+        }
+        .holdd{
+            position: fixed;
+            top: 0;
+            left: 0;
+            opacity: 0.2;
+            height: 100%;
+            width: 100%;
+            /* background-color: greenyellow; */
+            z-index: -1;
+        }
+        .holdd .part{
+            /* background-color: #fff; */
+            box-shadow: 0 0 25px #fff inset;
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            height: 70px;
+            width: 80px;
+            border-radius: 60% 70% 40% 80%;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="holdd">
+            <div class="part"></div>
+        </div>
+        <div class="container">
+            <h1>Coming soon</h1>
+            <hr>
+            <p>Hi there this website is under construction and will be available soon. Enter your email to be notified when it does.</p>
+            <form class="newsletter" action="addtonewssletter.php">
+                <input type="email" placeholder="enter email here" required>
+                <button>inform me</button>
+            </form>
+        </div>
+        <div class="standin">
+            &copy;CoryG
+        </div>
+    </div>
+
+    <script>
+        let items = document.getElementsByClassName("part");
+        let addme = 20;
+        let size = 2;
+
+        let bbdr = setInterval(() => {
+            addme = addme + 100;
+            size += 1;
+            items[0].style.transform =`rotate(${addme}deg) scale(${(size)})`;
+
+            if(size > 40){
+                clearInterval(bbdr);
+            }
+        }, 300);
+    </script>
+</body>
+</html>
